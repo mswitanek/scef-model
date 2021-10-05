@@ -224,7 +224,7 @@ for huc in range(0,hucNum):
         *np.abs(corrCoefs[huc,:maxlag]),axis=1) /np.nansum(np.abs(corrCoefs[huc,:maxlag]))
     corrValidation[huc] = np.corrcoef(predictedPrecipSST[valid1,huc],precipValidZ[:,huc])[0,1]
 
-print("Average HUC4 Anomaly Correlation: "+"%.3f" % (np.mean(corrValidation)))
+print("CLSST CONUS-AVG Anomaly Correlation: "+"%.3f" % (np.mean(corrValidation)))
 
 ### Save a numpy file that contains the forecasted and observed precipitation.
 np.savez("forecasts/clsstForecasts_simulation1.npz",predictedPrecip=predictedPrecipSST,
@@ -557,10 +557,10 @@ acECMWF = np.zeros((204))
 for huc in range(0,204):
     acECMWF[huc] = np.corrcoef(precipECMWFhucs[-20:,huc],observedPrecip[52:,huc])[0,1]
 
-### Print the 
-print("SCEF CONUS-AVG = %.3f" % (np.mean(acSCEF)))
-print("NMME CONUS-AVG = %.3f" % (np.mean(acNMME)))
-print("ECMWF CONUS-AVG = %.3f" % (np.mean(acECMWF)))
+### Print the CONUS-Average (at the HUC4-level) anomaly correlations for SCEF, NMME, and ECMWF
+print("SCEF CONUS-AVG Anomaly Correlation = %.3f" % (np.mean(acSCEF)))
+print("NMME CONUS-AVG Anomaly Correlation = %.3f" % (np.mean(acNMME)))
+print("ECMWF CONUS-AVG Anomaly Correlation = %.3f" % (np.mean(acECMWF)))
 
 
 
