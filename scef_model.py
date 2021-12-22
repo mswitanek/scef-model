@@ -459,10 +459,8 @@ for huc in range(0,204):
 np.savez("forecasts/slp_uwnd_vwnd_predictLast20years_hcorr_simulation1.npz",\
     ccSLP=ccSLP,ccUWND=ccUWND,ccVWND=ccVWND)
     
-### This is the number of best performing ensemble members that we will use 
-###     to calculate an ensemble mean forecast. This number is 1% of the 500 
-###     parameter combinations used here in this script.
-numEns2use = 5
+### Use the best performing ensemble member to calculate an ensemble mean forecast. 
+numEns2use = 1
 
 ### Get the CONUS-average correlation coefficients (average across all 204 HUCs),
 ###     then obtain the sorted indices of the worst-to-best performing parameter 
